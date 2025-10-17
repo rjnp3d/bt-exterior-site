@@ -129,3 +129,25 @@ footer{padding:36px 0;background:#0b0f14;color:#dbe1e1}
 footer a{color:#e9f0ea;text-decoration:underline}
 .small{font-size:13px;color:#59656b}
 .highlight{color:#2a6b3f}
+/* --- Mobile polish --- */
+@media (max-width: 480px){
+  .container { padding: 0 14px; }
+
+  header .nav { height: 56px; }
+  .brand img { height: 28px; }
+
+  .hero { padding: 56px 0 24px; }
+  .hero h1 { font-size: clamp(24px, 7vw, 32px); line-height: 1.2; }
+  .hero p  { font-size: 15px; }
+
+  .btn { padding: 12px 16px; font-size: 16px; }
+
+  .section-title { font-size: 20px; margin-bottom: 12px; }
+  .card { padding: 14px; }
+
+  /* One image per row on small phones */
+  .gallery { grid-template-columns: 1fr; gap: 8px; }
+
+  /* Contact inputs: comfy tap sizes */
+  .input { font-size: 16px; padding: 12px; }
+}
