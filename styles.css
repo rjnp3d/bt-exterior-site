@@ -136,9 +136,12 @@ footer a{color:#e9f0ea;text-decoration:underline}
   header .nav { height: 56px; }
   .brand img { height: 28px; }
 
-  .hero { padding: 56px 0 24px; }
+  .hero { padding: 72px 0 24px; }   /* a touch more top padding */
   .hero h1 { font-size: clamp(24px, 7vw, 32px); line-height: 1.2; }
   .hero p  { font-size: 15px; }
+
+  /* hero logo on phones */
+  .hero-logo { top: 20px; left: 16px; width: 80px; opacity: .85; }
 
   .btn { padding: 12px 16px; font-size: 16px; }
 
