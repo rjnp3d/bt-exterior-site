@@ -22,7 +22,7 @@ nav a{font-weight:600}
   .hamburger{display:block}
 }
 /* Hero */
-.hero{position: relative;background:linear-gradient(180deg,#e7f3ff,transparent);padding:72px 0 32px}
+.hero{position: relative;background:linear-gradient(180deg,#e8efe8,transparent);padding:72px 0 32px}
 .hero-logo {
   position: absolute;
   top: 20px;          /* moves it down a bit from the top edge */
