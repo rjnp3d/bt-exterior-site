@@ -115,9 +115,6 @@ nav a:hover{opacity:.75}
 .hero p{
   margin-top:12px;
   color:var(--muted);
-  max-width:min(80ch, 100%);
-  text-wrap:balance;
-
 }
 
 .highlight{font-weight:800}
