@@ -2,5 +2,5 @@
   publish = "."
   command = ""
 
-[build.environment]
-  NODE_VERSION = "20"
+[build.processing]
+  skip_processing = true
