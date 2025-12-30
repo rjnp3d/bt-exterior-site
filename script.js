@@ -143,3 +143,16 @@ if (form) {
   });
 })();
 
+const heroLogo = document.querySelector('.hero-logo');
+const heroSection = document.querySelector('.hero');
+
+if (heroLogo && heroSection) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      heroLogo.classList.toggle('is-dim', !entry.isIntersecting);
+    },
+    { threshold: 0.25 }
+  );
+
+  observer.observe(heroSection);
+}

@@ -105,7 +105,11 @@ section{scroll-margin-top:84px}
   z-index: 40;         /* under header, above page */
   opacity: .9;
   pointer-events: none;
+  .hero-logo{
+  transition: opacity .2s ease;
 }
+
+
 
 .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-.02em}
 .hero p{margin-top:12px;color:var(--muted)}
@@ -201,4 +205,8 @@ footer a{color:#e9f0ea;text-decoration:underline}
 
   .gallery{grid-template-columns:1fr;gap:8px}
   .input{font-size:16px;padding:12px}
+}
+
+.hero-logo.is-dim{
+  opacity: 0.55;
 }
