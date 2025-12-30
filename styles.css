@@ -115,8 +115,11 @@ nav a:hover{opacity:.75}
 .hero p{
   margin-top:12px;
   color:var(--muted);
-  max-width:44ch;
+  max-width:min(80ch, 100%);
+  text-wrap:balance;
+
 }
+
 .highlight{font-weight:800}
 .hero .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
 
