@@ -280,7 +280,11 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
   header .nav{height:56px}
   .brand img{height:28px}
   .hero{padding:100px 0 24px}
-  .hero h1{font-size:clamp(24px,7vw,32px);line-height:1.2}
+  .hero h1{
+  font-size: clamp(26px, 7vw, 36px);
+  line-height: 1.2;
+}
+
   .hero p{font-size:15px}
 
   .hero-logo{top:16px;left:16px;width:80px;opacity:.9}
