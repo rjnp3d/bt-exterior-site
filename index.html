@@ -60,14 +60,17 @@
 <main id="top">
   <!-- HERO -->
   <section class="hero" aria-label="Hero section">
+    <!-- floating logo that stays visible while scrolling -->
     <img class="hero-logo" src="assets/btlogo.png" alt="BT Exterior Co. logo">
+
     <div class="container">
       <h1>High-quality exterior installations for homes & businesses in <span class="highlight">London, Ontario</span>.</h1>
       <p>With over 15 years of combined experience, BT Exterior Co. delivers reliable service, lasting value, and results you can trust — backed by fair and honest pricing.</p>
+
       <div class="cta">
-  <a href="#contact" class="btn">Get a Free Quote</a>
-  <a href="#services" class="btn">View Services</a>
-</div>
+        <a href="#contact" class="btn">Get a Free Quote</a>
+        <a href="#services" class="btn">View Services</a>
+      </div>
 
       <div class="badges" aria-label="Company badges">
         <span>Established 2024</span>
@@ -162,51 +165,70 @@
   <section id="gallery">
     <div class="container">
       <h2 class="section-title">Recent Work</h2>
+
       <div class="gallery" aria-label="Project photo gallery">
-        <img src="assets/job1.jpg" alt="Project photo 1">
-        <img src="assets/job2.jpg" alt="Project photo 2">
-        <img src="assets/job3.jpg" alt="Project photo 3">
-        <img src="assets/job4.jpg" alt="Project photo 4">
-        <img src="assets/job5.jpg" alt="Project photo 5">
-        <img src="assets/job6.jpg" alt="Project photo 6">
+        <img src="assets/job1.jpg" alt="Project photo 1" loading="lazy">
+        <img src="assets/job2.jpg" alt="Project photo 2" loading="lazy">
+        <img src="assets/job3.jpg" alt="Project photo 3" loading="lazy">
+        <img src="assets/job4.jpg" alt="Project photo 4" loading="lazy">
+        <img src="assets/job5.jpg" alt="Project photo 5" loading="lazy">
+        <img src="assets/job6.jpg" alt="Project photo 6" loading="lazy">
       </div>
-      <p class="small" style="margin-top:10px">Tap any photo to expand.</p>
+
+      <p class="small mt-10">Tap any photo to expand.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <!-- CONTACT -->
-<section id="contact" class="contact">
-  <div class="container">
-    <h2 class="section-title">Get a Free Quote</h2>
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Get a Free Quote</h2>
 
-    <div class="grid grid-2">
-      <!-- Form -->
-      <div class="card">
-        <form id="contact-form" aria-label="Contact form">
-          <input class="input" type="text" name="name" placeholder="Your name" required>
-          <input class="input" type="email" name="email" placeholder="Email" required>
-          <input class="input" type="tel" name="phone" placeholder="Phone (optional)">
-          <textarea class="input" name="message" placeholder="Tell us about your project…" required></textarea>
-          <button class="btn" type="submit">Send</button>
-          <p class="small">We typically reply within 24 hours.</p>
-        </form>
-      </div>
+      <div class="grid grid-2">
+        <!-- Form -->
+        <div class="card">
+          <form id="contact-form" aria-label="Contact form">
+            <input class="input" type="text" name="name" placeholder="Your name" required>
+            <input class="input" type="email" name="email" placeholder="Email" required>
+            <input class="input" type="tel" name="phone" placeholder="Phone (optional)">
+            <textarea class="input" name="message" placeholder="Tell us about your project…" required></textarea>
+            <button class="btn" type="submit">Send</button>
+            <p class="small">We typically reply within 24 hours.</p>
+          </form>
+        </div>
 
-      <!-- Contact Info -->
-      <div class="card contact-info">
-        <h3>Contact for a Free Quote</h3>
+        <!-- Contact Info -->
+        <div class="card contact-info">
+          <h3>Contact for a Free Quote</h3>
 
-        <p><strong>Email:</strong> <a href="mailto:btexteriorslondon@gmail.com">btexteriorslondon@gmail.com</a></p>
-        <p><strong>Phone:</strong> +1&nbsp;519&nbsp;902&nbsp;4507</p>
-        <p><strong>Service area:</strong> London, Ontario & surrounding area</p>
+          <p><strong>Email:</strong> <a href="mailto:btexteriorslondon@gmail.com">btexteriorslondon@gmail.com</a></p>
+          <p><strong>Phone:</strong> <span>+1 519 902 4507</span></p>
+          <p><strong>Service area:</strong> <span>London, Ontario &amp; surrounding area</span></p>
 
-        <a class="btn" href="https://maps.google.com/?q=London%2C+ON" target="_blank" rel="noopener">
-          View Area on Maps
-        </a>
+          <a class="btn" href="https://maps.google.com/?q=London%2C+ON" target="_blank" rel="noopener">View Area on Maps</a>
 
-        <p class="small">Licensed & insured. Workmanship warranty available.</p>
+          <p class="small">Licensed &amp; insured. Workmanship warranty available.</p>
+        </div>
       </div>
     </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© <span id="year"></span> BT Exterior Co. All rights reserved.</p>
   </div>
-</section>
+</footer>
+
+<!-- Lightbox overlay (gallery) -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-prev" type="button" aria-label="Previous photo">‹</button>
+  <img class="lb-img" alt="">
+  <button class="lb-next" type="button" aria-label="Next photo">›</button>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
+
