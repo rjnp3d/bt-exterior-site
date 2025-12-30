@@ -20,6 +20,13 @@ a{color:inherit;text-decoration:none}
   --border: rgba(17,18,20,.10);
   --shadow-sm: 0 4px 14px rgba(17,18,20,.06);
   --shadow-md: 0 12px 32px rgba(17,18,20,.10);
+  
+  /* Backwards-compat aliases (so older rules still work) */
+  --off-white: var(--bg);
+  --black: var(--text);
+  --red: var(--accent);
+  --red-soft: var(--accent-soft);
+
 }
 
 
@@ -49,12 +56,14 @@ body{
   transition:all .2s ease;
 }
 
-.btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-1px);opacity:.98}
-.btn-outline{
-  background:transparent;
-  color:var(--text);
-  border:2px solid var(--text);
+.btn:hover{
+  background: var(--accent);
+  border-color: var(--accent);
+  color:#fff;
+  transform: translateY(-1px);
+  opacity: 1;
 }
+
 
 .btn-outline:hover{
   background:var(--text);
