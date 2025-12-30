@@ -119,7 +119,7 @@ nav a{font-weight:600}
 }
 
 /* Sections */
-section{padding:52px 0;border-top:1px solid #f1f2f3}
+section{padding:52px 0}
 .hero + section{
   border-top:none;
 }
