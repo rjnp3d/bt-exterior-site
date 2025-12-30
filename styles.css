@@ -120,6 +120,9 @@ nav a{font-weight:600}
 
 /* Sections */
 section{padding:52px 0;border-top:1px solid #f1f2f3}
+.hero + section{
+  border-top:none;
+}
 .section-title{font-size:24px;margin-bottom:16px}
 .grid{display:grid;gap:16px}
 .grid-3{grid-template-columns:repeat(3,1fr)}
