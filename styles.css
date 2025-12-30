@@ -88,6 +88,25 @@ section{padding:52px 0}
 /* Cards */
 .card{background:#fff;border-radius:12px;padding:18px;box-shadow:var(--shadow-sm)}
 .card h3{margin-bottom:6px;font-size:18px}
+/* Contact info spacing */
+.contact-info p{
+  margin: 6px 0;
+}
+
+.contact-info p strong{
+  display:inline-block;
+  min-width: 110px; /* lines up Email/Phone/Service area */
+}
+
+.contact-info .btn{
+  margin: 12px 0 8px;
+}
+
+.contact-info .small{
+  display:block;
+  margin-top: 10px;
+}
+
 
 /* Hero */
 .hero{
