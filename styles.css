@@ -35,20 +35,32 @@ body{
 
 /* Buttons + accents */
 .btn{
-  display:inline-block;
-  padding:12px 20px;
-  border-radius:8px;
-  border:1px solid var(--black);
-  background:var(--black);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 26px;
+  border-radius:10px;
+  border:1px solid var(--text);
+  background:var(--text);
   color:#fff;
   font-weight:600;
-  transition:.2s;
+  font-size:16px;
+  line-height:1;
+  transition:all .2s ease;
 }
+
 .btn:hover{background:var(--red);border-color:var(--red);transform:translateY(-1px);opacity:.98}
-.btn-outline{background:transparent;color:var(--black);border:1px solid var(--black)}
-.btn-outline:hover{background:var(--black);color:#fff}
-nav a:hover{color:var(--red)}
-.highlight{color:var(--red)}
+.btn-outline{
+  background:transparent;
+  color:var(--text);
+  border:2px solid var(--text);
+}
+
+.btn-outline:hover{
+  background:var(--text);
+  color:#fff;
+}
+
 
 /* Header / Nav */
 header{
@@ -103,6 +115,9 @@ section{scroll-margin-top:84px}
 .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;letter-spacing:-.02em}
 .hero p{margin-top:12px;color:var(--muted)}
 .hero .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .btn{
+  font-size:17px;
+}
 .badges{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
 .badges span{font-size:12px;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid var(--border)}
 
