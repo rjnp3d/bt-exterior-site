@@ -48,24 +48,27 @@ if (form) {
   });
 }
 
-// Dim logo after hero / swap mobile header icon on scroll
+// Logo behavior
 const heroLogo = document.querySelector('.hero-logo');
-const heroSection = document.querySelector('.hero');
 
-if (heroLogo && heroSection) {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      const isMobile = window.innerWidth <= 480;
+if (heroLogo) {
+  window.addEventListener('scroll', () => {
+    const isMobile = window.innerWidth <= 480;
 
-      if (isMobile) {
-        document.body.classList.toggle('mobile-scrolled', !entry.isIntersecting);
+    if (isMobile) {
+      if (window.scrollY > 40) {
+        document.body.classList.add('mobile-scrolled');
       } else {
-        heroLogo.classList.toggle('is-dim', !entry.isIntersecting);
+        document.body.classList.remove('mobile-scrolled');
       }
-    },
-    { threshold: 0.25 }
-  );
-  observer.observe(heroSection);
+    } else {
+      if (window.scrollY > 300) {
+        heroLogo.classList.add('is-dim');
+      } else {
+        heroLogo.classList.remove('is-dim');
+      }
+    }
+  });
 }
 
 // Gallery lightbox (click image -> overlay, arrows, esc)
