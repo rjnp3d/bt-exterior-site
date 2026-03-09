@@ -71,7 +71,12 @@ header{
   justify-content:space-between;
   height:64px;
 }
-.brand{display:flex;align-items:center;gap:10px}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-left:8px;
+}
 .brand-wordmark{height:32px;width:auto}
 .brand-mobile-icon{
   display:none;
