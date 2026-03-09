@@ -48,14 +48,20 @@ if (form) {
   });
 }
 
-// Dim logo after hero
+// Dim logo after hero / swap mobile header icon on scroll
 const heroLogo = document.querySelector('.hero-logo');
 const heroSection = document.querySelector('.hero');
 
 if (heroLogo && heroSection) {
   const observer = new IntersectionObserver(
     ([entry]) => {
-      heroLogo.classList.toggle('is-dim', !entry.isIntersecting);
+      const isMobile = window.innerWidth <= 480;
+
+      if (isMobile) {
+        document.body.classList.toggle('mobile-scrolled', !entry.isIntersecting);
+      } else {
+        heroLogo.classList.toggle('is-dim', !entry.isIntersecting);
+      }
     },
     { threshold: 0.25 }
   );

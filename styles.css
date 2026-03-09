@@ -72,7 +72,14 @@ header{
   height:64px;
 }
 .brand{display:flex;align-items:center;gap:10px}
-.brand img{height:32px;width:auto}
+.brand-wordmark{height:32px;width:auto}
+.brand-mobile-icon{
+  display:none;
+  width:28px;
+  height:28px;
+  opacity:0;
+  transition:opacity .2s ease;
+}
 
 nav ul{display:flex;gap:22px;list-style:none}
 nav a{font-weight:650}
@@ -142,6 +149,8 @@ nav a:hover{opacity:.75}
   transition:opacity .2s ease;
 }
 .hero-logo.is-dim{opacity:.55}
+body.mobile-scrolled .hero-logo{opacity:0}
+body.mobile-scrolled .brand-mobile-icon{opacity:1}
 
 /* Sections */
 section{padding:52px 0;border-top:none}
@@ -278,7 +287,12 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 @media (max-width:480px){
   .container{padding:0 14px}
   header .nav{height:56px}
-  .brand img{height:28px}
+  .brand-wordmark{height:28px}
+  .brand-mobile-icon{
+    display:block;
+    width:24px;
+    height:24px;
+  }
   .hero{padding:100px 0 24px}
   .hero h1{
   font-size: clamp(26px, 7vw, 36px);
@@ -287,6 +301,6 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 
   .hero p{font-size:15px}
 
-  .hero-logo{top:16px;left:16px;width:80px;opacity:.9}
+  .hero-logo{top:72px;left:14px;width:72px;opacity:.9}
   .input{font-size:16px}
 }
