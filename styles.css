@@ -246,6 +246,25 @@ textarea.input{min-height:120px;resize:vertical}
 .contact-info .btn{width:max-content;margin-top:6px}
 .contact-info .small{margin-top:6px}
 
+@media (max-width:480px){
+  .contact-info p:not(.small){
+    justify-content:flex-start; /* CHANGED: stop pushing content to opposite sides */
+    align-items:flex-start; /* CHANGED */
+    gap:8px; /* CHANGED */
+    flex-wrap:wrap; /* CHANGED: allow wrap instead of overflow */
+  }
+
+  .contact-info p:not(.small) strong{
+    min-width:0; /* CHANGED: remove forced label width on mobile */
+  }
+
+  .contact-info p:not(.small) a,
+  .contact-info p:not(.small) span{
+    overflow-wrap:anywhere; /* CHANGED: lets long email/text wrap */
+    word-break:break-word; /* CHANGED */
+  }
+}
+
 /* Footer */
 footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 .small{font-size:13px;color:#59656b}
