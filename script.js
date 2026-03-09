@@ -21,24 +21,30 @@ if (hamburger && navList) {
 const year = document.getElementById('year');
 if (year) year.textContent = String(new Date().getFullYear());
 
-// Contact form -> mailto
+// Contact form -> Netlify
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(form);
 
-    const name = (data.get('name') || '').toString().trim();
-    const email = (data.get('email') || '').toString().trim();
-    const phone = (data.get('phone') || '').toString().trim();
-    const message = (data.get('message') || '').toString().trim();
+    const formData = new FormData(form);
 
-    const subject = encodeURIComponent(`BT Exterior Co Quote Request — ${name || 'New Lead'}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`
-    );
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
 
-    window.location.href = `mailto:btexteriorslondon@gmail.com?subject=${subject}&body=${body}`;
+      if (response.ok) {
+        alert('Thanks! Your message has been sent.');
+        form.reset();
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+      }
+    } catch (error) {
+      alert('Something went wrong. Please try again or email us directly.');
+    }
   });
 }
 
