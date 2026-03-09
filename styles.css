@@ -301,10 +301,11 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
   }
 
   .hamburger{
-    display:block;
-    margin-left:auto;
-    padding:8px 9px;
-  }
+  display:block;
+  margin-left:auto;
+  margin-right:12px;
+  padding:8px 9px;
+}
 
   .hero{padding:100px 0 24px}
 
