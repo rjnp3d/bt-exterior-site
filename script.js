@@ -52,24 +52,31 @@ if (form) {
 const heroLogo = document.querySelector('.hero-logo');
 
 if (heroLogo) {
-  window.addEventListener('scroll', () => {
+  function updateLogoState() {
     const isMobile = window.innerWidth <= 480;
 
     if (isMobile) {
-  if (window.scrollY > 20) { // CHANGED from 40
-    document.body.classList.add('mobile-scrolled');
-  } else {
-    document.body.classList.remove('mobile-scrolled');
-  }
-}
+      heroLogo.classList.remove('is-dim'); // NEW: mobile should only use mobile-scrolled state
+
+      if (window.scrollY > 20) {
+        document.body.classList.add('mobile-scrolled');
+      } else {
+        document.body.classList.remove('mobile-scrolled');
+      }
     } else {
+      document.body.classList.remove('mobile-scrolled');
+
       if (window.scrollY > 300) {
         heroLogo.classList.add('is-dim');
       } else {
         heroLogo.classList.remove('is-dim');
       }
     }
-  });
+  }
+
+  window.addEventListener('scroll', updateLogoState);
+  window.addEventListener('resize', updateLogoState); // NEW
+  updateLogoState(); // NEW
 }
 
 // Gallery lightbox (click image -> overlay, arrows, esc)
