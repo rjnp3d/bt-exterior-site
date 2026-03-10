@@ -75,6 +75,7 @@ header{
   display:flex;
   align-items:center;
   gap:8px;
+  padding-left:20px; /* NEW */
 }
 
 .brand-wordmark{height:42px;width:auto}
@@ -331,11 +332,11 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
   }
 
   .hamburger{
-    display:block;
-    margin-left:auto;
-    margin-right:14px;
-    padding:8px 16px;
-  }
+  display:block;
+  margin-left:auto;
+  margin-right:20px; /* CHANGED */
+  padding:8px 16px;
+}
 
   .hero{padding:132px 0 24px}
 
