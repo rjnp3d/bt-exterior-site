@@ -310,7 +310,7 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 /* Mobile polish */
 @media (max-width:480px){
   .container{padding:0 14px}
-  section{padding:28px 0} /* CHANGED: reduces spacing between sections on mobile */
+  section{padding:34px 0} /* CHANGED: reduces spacing between sections on mobile */
 
   header .nav{
     height:56px;
