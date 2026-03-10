@@ -100,10 +100,10 @@ nav a:hover{opacity:.75}
 
 .hamburger span{
   display:block;
-  width:16px;
+  width:14px;   /* CHANGED */
   height:2px;
-  background:#bf6d6d; /* red bars */
-  margin:4px 0;
+  background:#bf6d6d;
+  margin:3px 0; /* CHANGED */
   border-radius:2px;
 }
 
