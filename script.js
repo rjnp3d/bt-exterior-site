@@ -49,15 +49,26 @@ if (form) {
   });
 }
 
-// CHANGED: mobile header icon behavior only (floating hero logo removed)
-function updateLogoState() {
-  const isMobile = window.innerWidth <= 480;
+const heroLogo = document.querySelector('.hero-logo');
 
-  if (isMobile && window.scrollY > 20) {
-    document.body.classList.add('mobile-scrolled');
-  } else {
-    document.body.classList.remove('mobile-scrolled');
+if (heroLogo) {
+  function updateLogoState() {
+    const isMobile = window.innerWidth <= 480;
+
+    if (isMobile) {
+      if (window.scrollY > 20) {
+        document.body.classList.add('mobile-scrolled');
+      } else {
+        document.body.classList.remove('mobile-scrolled');
+      }
+    } else {
+      document.body.classList.remove('mobile-scrolled');
+    }
   }
+
+  window.addEventListener('scroll', updateLogoState);
+  window.addEventListener('resize', updateLogoState);
+  updateLogoState();
 }
 
 window.addEventListener('scroll', updateLogoState);

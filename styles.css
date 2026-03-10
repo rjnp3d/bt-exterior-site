@@ -126,7 +126,7 @@ nav a:hover{opacity:.75}
   position:relative;
   background:linear-gradient(180deg,#ffffff 0%, var(--bg) 70%);
   padding:72px 0 32px;
-  overflow:hidden; /* CHANGED: keeps watermark contained inside hero */
+  overflow:hidden; /* CHANGED */
 }
 .hero h1{
   font-size: clamp(32px, 5vw, 52px);
@@ -161,7 +161,7 @@ nav a:hover{opacity:.75}
   border:1px solid var(--border);
 }
 
-/* CHANGED: hero watermark replaces floating logo */
+/* Desktop-only hero watermark */
 .hero-watermark{
   position:absolute;
   top:50%;
@@ -169,13 +169,13 @@ nav a:hover{opacity:.75}
   transform:translate(-50%, -50%);
   width:480px;
   height:auto;
+  z-index:1;
   opacity:.08;
   pointer-events:none;
-  z-index:1;
 }
 
+body.mobile-scrolled .hero-logo{opacity:0}
 body.mobile-scrolled .brand-mobile-icon{opacity:1}
-
 /* Sections */
 section{padding:52px 0;border-top:none}
 .section-title{font-size:24px;margin-bottom:16px}
@@ -364,6 +364,17 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 
   .hero p{font-size:15px}
 
-    .hero-watermark{display:none} /* CHANGED: hide watermark on mobile */
+    .hero-logo{
+    position:fixed;
+    top:72px;
+    left:14px;
+    width:100px;
+    height:auto;
+    z-index:40;
+    opacity:.9;
+    pointer-events:none;
+  }
+
+  .hero-watermark{display:none}
   .input{font-size:16px}
 }
