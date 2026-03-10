@@ -138,7 +138,11 @@ nav a:hover{opacity:.75}
   color:var(--muted);
 }
 
-.highlight{font-weight:800}
+.highlight{
+  font-weight:800;
+  color:#bf6d6d;
+  letter-spacing:.2px;
+}
 .hero .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
 
 .badges{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
