@@ -319,10 +319,14 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 
   .brand-wordmark{height:28px}
 
-  .brand-mobile-icon{
+.brand{
+  gap:16px; /* NEW – increases space between ribbon and BT Exterior Co. */
+}
+
+.brand-mobile-icon{
   display:block;
-  width:30px;  /* CHANGED from 24px */
-  height:30px; /* CHANGED from 24px */
+  width:30px;
+  height:30px;
 }
   
 
