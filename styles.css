@@ -320,9 +320,10 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
   .brand-wordmark{height:28px}
 
   .brand-mobile-icon{
-    display:block;
-    width:24px;
-    height:24px;
+  display:block;
+  width:30px;  /* CHANGED from 24px */
+  height:30px; /* CHANGED from 24px */
+}
   }
 
   .hamburger{
