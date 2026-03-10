@@ -1,3 +1,4 @@
+
 // Mobile nav (with aria-expanded)
 const hamburger = document.querySelector('.hamburger');
 const navList = document.querySelector('nav ul');
@@ -48,37 +49,20 @@ if (form) {
   });
 }
 
-// Logo behavior
-const heroLogo = document.querySelector('.hero-logo');
+// CHANGED: mobile header icon behavior only (floating hero logo removed)
+function updateLogoState() {
+  const isMobile = window.innerWidth <= 480;
 
-if (heroLogo) {
-  function updateLogoState() {
-    const isMobile = window.innerWidth <= 480;
-
-    if (isMobile) {
-      heroLogo.classList.remove('is-dim'); // NEW: mobile should only use mobile-scrolled state
-
-      if (window.scrollY > 20) {
-        document.body.classList.add('mobile-scrolled');
-      } else {
-        document.body.classList.remove('mobile-scrolled');
-      }
-    } else {
-      document.body.classList.remove('mobile-scrolled');
-
-      if (window.scrollY > 300) {
-        heroLogo.classList.add('is-dim');
-      } else {
-        heroLogo.classList.remove('is-dim');
-      }
-    }
+  if (isMobile && window.scrollY > 20) {
+    document.body.classList.add('mobile-scrolled');
+  } else {
+    document.body.classList.remove('mobile-scrolled');
   }
-
-  window.addEventListener('scroll', updateLogoState);
-  window.addEventListener('resize', updateLogoState); // NEW
-  updateLogoState(); // NEW
 }
 
+window.addEventListener('scroll', updateLogoState);
+window.addEventListener('resize', updateLogoState);
+updateLogoState();
 // Gallery lightbox (click image -> overlay, arrows, esc)
 const lightbox = document.getElementById('lightbox');
 const lbImg = lightbox?.querySelector('.lb-img');
