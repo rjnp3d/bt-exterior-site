@@ -56,11 +56,12 @@ if (heroLogo) {
     const isMobile = window.innerWidth <= 480;
 
     if (isMobile) {
-      if (window.scrollY > 40) {
-        document.body.classList.add('mobile-scrolled');
-      } else {
-        document.body.classList.remove('mobile-scrolled');
-      }
+  if (window.scrollY > 20) { // CHANGED from 40
+    document.body.classList.add('mobile-scrolled');
+  } else {
+    document.body.classList.remove('mobile-scrolled');
+  }
+}
     } else {
       if (window.scrollY > 300) {
         heroLogo.classList.add('is-dim');
