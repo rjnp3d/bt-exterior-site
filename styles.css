@@ -126,7 +126,6 @@ nav a:hover{opacity:.75}
   position:relative;
   background:linear-gradient(180deg,#ffffff 0%, var(--bg) 70%);
   padding:72px 0 32px;
-  overflow:hidden; /* CHANGED */
 }
 .hero h1{
   font-size: clamp(32px, 5vw, 52px);
@@ -137,12 +136,6 @@ nav a:hover{opacity:.75}
 .hero p{
   margin-top:12px;
   color:var(--muted);
-}
-
-/* CHANGED: keeps hero text/buttons above watermark */
-.hero .container{
-  position:relative;
-  z-index:2;
 }
 
 .highlight{
@@ -161,21 +154,22 @@ nav a:hover{opacity:.75}
   border:1px solid var(--border);
 }
 
-/* Desktop-only hero watermark */
-.hero-watermark{
-  position:absolute;
-  top:50%;
-  left:78%;
-  transform:translate(-50%, -50%);
-  width:480px;
+/* Floating logo (stays visible) */
+.hero-logo{
+  position:fixed;
+  top:92px;
+  left:56px; /* CHANGED from 18px */
+  width:220px;
   height:auto;
-  z-index:1;
-  opacity:.08;
+  z-index:40;
+  opacity:.9;
   pointer-events:none;
+  transition:opacity .2s ease;
 }
-
+.hero-logo.is-dim{opacity:.55}
 body.mobile-scrolled .hero-logo{opacity:0}
 body.mobile-scrolled .brand-mobile-icon{opacity:1}
+
 /* Sections */
 section{padding:52px 0;border-top:none}
 .section-title{font-size:24px;margin-bottom:16px}
@@ -364,17 +358,6 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 
   .hero p{font-size:15px}
 
-    .hero-logo{
-    position:fixed;
-    top:72px;
-    left:14px;
-    width:100px;
-    height:auto;
-    z-index:40;
-    opacity:.9;
-    pointer-events:none;
-  }
-
-  .hero-watermark{display:none}
+  .hero-logo{top:72px;left:14px;width:100px;opacity:.9}
   .input{font-size:16px}
 }

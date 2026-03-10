@@ -1,133 +1,158 @@
+// Mobile nav toggle
+const toggle = document.querySelector('.hamburger');
+const menu = document.querySelector('nav ul');
 
-// Mobile nav (with aria-expanded)
-const hamburger = document.querySelector('.hamburger');
-const navList = document.querySelector('nav ul');
-
-if (hamburger && navList) {
-  hamburger.addEventListener('click', () => {
-    const isOpen = navList.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', String(isOpen));
+if (toggle && menu) {
+  toggle.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
   });
 
-  // Close menu when clicking a nav link (mobile)
-  navList.addEventListener('click', (e) => {
-    const a = e.target.closest('a');
-    if (!a) return;
-    navList.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
+  // Close menu when a link is clicked (mobile)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
 // Footer year
-const year = document.getElementById('year');
-if (year) year.textContent = String(new Date().getFullYear());
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form -> Netlify
+// Basic contact validation + mailto fallback
 const form = document.getElementById('contact-form');
 if (form) {
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form);
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
 
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData).toString()
-      });
-
-      if (response.ok) {
-        alert('Thanks! Your message has been sent.');
-        form.reset();
-      } else {
-        alert('Something went wrong. Please try again or email us directly.');
-      }
-    } catch (error) {
-      alert('Something went wrong. Please try again or email us directly.');
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
     }
+
+    const to = 'btexteriorslondon@gmail.com';
+    const subject = encodeURIComponent('New inquiry from BT Exterior Co. website');
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${form.phone.value}\n\n${message}`
+    );
+
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
   });
 }
 
-const heroLogo = document.querySelector('.hero-logo');
+// Lightbox with Left/Right Navigation
+(function () {
+  const imgs = document.querySelectorAll('.gallery img');
+  if (!imgs.length) return;
 
-if (heroLogo) {
-  function updateLogoState() {
-    const isMobile = window.innerWidth <= 480;
+  let currentIndex = 0;
 
-    if (isMobile) {
-      if (window.scrollY > 20) {
-        document.body.classList.add('mobile-scrolled');
-      } else {
-        document.body.classList.remove('mobile-scrolled');
-      }
-    } else {
-      document.body.classList.remove('mobile-scrolled');
-    }
-  }
+  const openLightbox = (index) => {
+    currentIndex = index;
 
-  window.addEventListener('scroll', updateLogoState);
-  window.addEventListener('resize', updateLogoState);
-  updateLogoState();
-}
+    const overlay = document.createElement('div');
+    overlay.setAttribute('role', 'dialog');
+    overlay.setAttribute('aria-modal', 'true');
+    overlay.style.cssText = `
+      position: fixed; inset: 0; background: rgba(0,0,0,.9);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999; padding: 20px;
+    `;
 
-window.addEventListener('scroll', updateLogoState);
-window.addEventListener('resize', updateLogoState);
-updateLogoState();
-// Gallery lightbox (click image -> overlay, arrows, esc)
-const lightbox = document.getElementById('lightbox');
-const lbImg = lightbox?.querySelector('.lb-img');
-const btnClose = lightbox?.querySelector('.lb-close');
-const btnPrev = lightbox?.querySelector('.lb-prev');
-const btnNext = lightbox?.querySelector('.lb-next');
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
-const galleryImgs = Array.from(document.querySelectorAll('.gallery img'));
-let currentIndex = -1;
+    const big = document.createElement('img');
+    big.style.cssText = `
+      max-width: min(1200px, 90vw);
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+      display: block;
+    `;
 
-function openLightbox(index) {
-  if (!lightbox || !lbImg) return;
-  currentIndex = index;
-  lbImg.src = galleryImgs[currentIndex].src;
-  lbImg.alt = galleryImgs[currentIndex].alt || 'Gallery photo';
-  lightbox.classList.add('open');
-  lightbox.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-}
+    const caption = document.createElement('div');
+    caption.style.cssText = `
+      color: #e9ecef; font-size: 14px; margin-top: 10px; text-align: center;
+    `;
 
-function closeLightbox() {
-  if (!lightbox || !lbImg) return;
-  lightbox.classList.remove('open');
-  lightbox.setAttribute('aria-hidden', 'true');
-  lbImg.src = '';
-  document.body.style.overflow = '';
-  currentIndex = -1;
-}
+    const wrap = document.createElement('div');
+    wrap.style.textAlign = 'center';
+    wrap.appendChild(big);
+    wrap.appendChild(caption);
 
-function showNext(delta) {
-  if (currentIndex < 0) return;
-  currentIndex = (currentIndex + delta + galleryImgs.length) % galleryImgs.length;
-  lbImg.src = galleryImgs[currentIndex].src;
-  lbImg.alt = galleryImgs[currentIndex].alt || 'Gallery photo';
-}
+    overlay.appendChild(wrap);
 
-if (galleryImgs.length && lightbox) {
-  galleryImgs.forEach((img, i) => {
+    const arrowBase = `
+      position: absolute; top: 50%; transform: translateY(-50%);
+      font-size: 40px; color: #fff; cursor: pointer; user-select: none;
+      padding: 12px; border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+    `;
+
+    const prev = document.createElement('div');
+    prev.innerHTML = '&#10094;';
+    prev.style.cssText = arrowBase + 'left: 18px;';
+
+    const next = document.createElement('div');
+    next.innerHTML = '&#10095;';
+    next.style.cssText = arrowBase + 'right: 18px;';
+
+    overlay.appendChild(prev);
+    overlay.appendChild(next);
+
+    const show = (newIndex) => {
+      currentIndex = (newIndex + imgs.length) % imgs.length;
+      big.src = imgs[currentIndex].src;
+      caption.textContent = imgs[currentIndex].alt || '';
+    };
+
+    const close = () => {
+      overlay.remove();
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+
+    prev.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex - 1); });
+    next.addEventListener('click', (e) => { e.stopPropagation(); show(currentIndex + 1); });
+
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) close();
+    });
+
+    const onKey = (e) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(currentIndex - 1);
+      if (e.key === 'ArrowRight') show(currentIndex + 1);
+    };
+    window.addEventListener('keydown', onKey);
+
+    show(currentIndex);
+    document.body.appendChild(overlay);
+  };
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => openLightbox(i));
   });
+})();
 
-  btnClose?.addEventListener('click', closeLightbox);
-  btnPrev?.addEventListener('click', () => showNext(-1));
-  btnNext?.addEventListener('click', () => showNext(1));
+const heroLogo = document.querySelector('.hero-logo');
+const heroSection = document.querySelector('.hero');
 
-  lightbox.addEventListener('click', (e) => {
-    // click backdrop closes
-    if (e.target === lightbox) closeLightbox();
-  });
+if (heroLogo && heroSection) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      heroLogo.classList.toggle('is-dim', !entry.isIntersecting);
+    },
+    { threshold: 0.25 }
+  );
 
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showNext(-1);
-    if (e.key === 'ArrowRight') showNext(1);
-  });
+  observer.observe(heroSection);
 }
