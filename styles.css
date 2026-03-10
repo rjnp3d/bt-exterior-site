@@ -310,7 +310,7 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 /* Mobile polish */
 @media (max-width:480px){
   .container{padding:0 14px}
-
+  .section{padding:36px 0} /* NEW — reduces vertical spacing by about half */
   header .nav{
     height:56px;
     padding-right:4px;
