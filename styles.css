@@ -310,7 +310,7 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 /* Mobile polish */
 @media (max-width:480px){
   .container{padding:0 14px}
-  section{padding:34px 0} /* CHANGED: reduces spacing between sections on mobile */
+  section{padding:38px 0} /* CHANGED: reduces spacing between sections on mobile */
 
   header .nav{
     height:56px;
@@ -341,6 +341,6 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
 
   .hero p{font-size:15px}
 
-  .hero-logo{top:72px;left:14px;width:72px;opacity:.9}
+  .hero-logo{top:72px;left:14px;width:100px;opacity:.9} /* CHANGED from 72px */
   .input{font-size:16px}
 }
