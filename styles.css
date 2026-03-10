@@ -145,7 +145,7 @@ nav a:hover{opacity:.75}
 .hero-logo{
   position:fixed;
   top:92px;
-  left:52px; /* CHANGED from 18px */
+  left:56px; /* CHANGED from 18px */
   width:220px;
   height:auto;
   z-index:40;
