@@ -74,8 +74,9 @@ header{
 .brand{
   display:flex;
   align-items:center;
-  gap:8px;
-  margin-left:8px;
+  gap:10px;
+  margin-left:8px; /* NEW — moves ribbon logo inward */
+}
 }
 .brand-wordmark{height:44px;width:auto}
 .brand-mobile-icon{
