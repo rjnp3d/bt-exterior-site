@@ -93,9 +93,18 @@ nav a:hover{opacity:.75}
   display:none;
   border:1px solid var(--border);
   border-radius:10px;
-  padding:8px 10px;
+  padding:10px 12px;
   background:#fff;
-  color:#c40000; /* NEW — makes hamburger lines red */
+  cursor:pointer;
+}
+
+.hamburger span{
+  display:block;
+  width:24px;
+  height:3px;
+  background:#c40000; /* red bars */
+  margin:4px 0;
+  border-radius:2px;
 }
 
 @media (max-width:860px){
