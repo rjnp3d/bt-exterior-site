@@ -100,7 +100,7 @@ nav a:hover{opacity:.75}
 
 .hamburger span{
   display:block;
-  width:24px;
+  width:20px;
   height:2px;
   background:#c40000; /* red bars */
   margin:4px 0;
