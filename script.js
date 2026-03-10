@@ -156,3 +156,17 @@ if (heroLogo && heroSection) {
 
   observer.observe(heroSection);
 }
+// restore mobile logo scroll behavior
+function updateMobileLogo(){
+  const isMobile = window.innerWidth <= 480;
+
+  if(isMobile && window.scrollY > 20){
+    document.body.classList.add("mobile-scrolled");
+  }else{
+    document.body.classList.remove("mobile-scrolled");
+  }
+}
+
+window.addEventListener("scroll", updateMobileLogo);
+window.addEventListener("resize", updateMobileLogo);
+updateMobileLogo();
