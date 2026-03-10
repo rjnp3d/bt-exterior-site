@@ -96,6 +96,7 @@ nav a:hover{opacity:.75}
   border-radius:10px;
   padding:8px 10px;
   background:#fff;
+  color:#c40000; /* NEW — makes hamburger lines red */
 }
 
 @media (max-width:860px){
