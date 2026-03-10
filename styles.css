@@ -341,8 +341,8 @@ footer{padding:36px 0;background:var(--text);color:#dbe1e1}
  .hamburger{
   display:block;
   margin-left:auto;
-  margin-right:12px;
-  padding:4px 12px; /* CHANGED */
+  margin-right:14px;
+  padding:3px 8px; /* CHANGED */
 }
 
   .hero{padding:132px 0 24px}
