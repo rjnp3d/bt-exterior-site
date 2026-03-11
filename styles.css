@@ -158,12 +158,12 @@ nav a:hover{opacity:.75}
 .hero-logo{
   position:absolute;              /* 🔧 was fixed */
   right:6%;                       /* 🔧 move to right side */
-  top:50%;                        /* 🔧 vertical center */
+  top:58%;                        /* 🔧 vertical center */
   transform:translateY(-50%);     /* 🔧 center alignment */
   width:520px;                    /* 🔧 watermark size */
   height:auto;
   z-index:0;                      /* 🔧 behind hero text */
-  opacity:.08;                    /* 🔧 faint watermark */
+  opacity:.05;                    /* 🔧 faint watermark */
   pointer-events:none;
   transition:opacity .2s ease;
 }
