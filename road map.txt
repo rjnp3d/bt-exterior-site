@@ -1,0 +1,53 @@
+This is the road map you made in the last chat:
+
+Agreed. Based on the live site, the strongest first pass is to treat this as a desktop polish roadmap, not random tweaks. Right now the site already has a clear hero, service cards, gallery, and contact CTA, so the goal is to make it feel more intentional and premium rather than “different.”
+
+On the hero logo specifically: I think your instinct is right. The idea of the floating logo is distinctive, but in practice it competes with the header logo and makes the hero feel a bit less anchored. Since the site already has strong branding in the header and a straightforward value proposition in the hero, I’d treat the floating logo as the first thing to refine.
+
+Here’s the order I’d use:
+
+1. Hero logo / hero composition
+This is the biggest visual lever. I’d recommend we replace the “floating left logo that dims on scroll” with a more intentional desktop treatment:
+
+either a large faded watermark inside the hero
+
+or a much smoother, subtler desktop logo behavior
+
+My recommendation is the watermark direction. It will look more premium and remove the janky scroll feeling.
+
+2. Hero trust layer
+Your hero already says “High-quality exterior installations…” and then gives the experience/value line underneath. That’s good, but desktop could feel stronger with one extra trust layer under the CTA/badges—something like local credibility, warranty emphasis, or a review-style trust cue.
+
+3. Service card polish
+The Services section is clear and useful. Next-level desktop polish here would be hover feel, icon rhythm, and slightly more visual hierarchy so the cards feel more premium when scanned.
+
+4. Why Choose Us hierarchy
+That section has strong content already—Fair & Honest Pricing, Quality Craftsmanship, Reliable & Local. The next step is making those three points feel more “featured” on desktop with stronger visual separation and hierarchy.
+
+5. Gallery polish
+The Recent Work section is valuable, but on desktop it can feel like a utility gallery rather than a showcase. Slight hover refinement and presentation polish would make it feel more high-end.
+
+6. Header/nav spacing and rhythm
+Your nav is already simple and clean. Once the hero is settled, we can make the header feel more expensive with spacing, hover feel, and alignment cleanup.
+
+7. Buttons / micro-interactions / finish pass
+This is the last 10%. Button hover feel, scroll smoothness, card motion, and subtle contrast adjustments.
+
+My recommendation is we start with Step 1 only and lock that in before touching anything else.
+
+For Step 1, I’d give you these two choices:
+
+Option A — Best overall:
+Remove the floating desktop logo behavior and turn it into a large low-opacity watermark inside the hero section.
+
+Option B — Keep the concept:
+Keep the desktop floating logo, but make the fade much smoother and more subtle so it feels intentional instead of glitchy.
+
+I’d choose Option A.
+
+If you want, I’ll walk you through Step 1 only with the exact before/after code and no extra changes.
+
+We were working on btexteriorco.com desktop polish. 
+
+Next step: Step 1 – redesign the hero logo behavior (replace floating logo with hero watermark).
+Here is my current styles.css and index.html.
