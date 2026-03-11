@@ -157,7 +157,7 @@ nav a:hover{opacity:.75}
 /* Floating logo (stays visible) */
 .hero-logo{
   position:absolute;              /* 🔧 was fixed */
-  right:6%;                       /* 🔧 move to right side */
+  right:3%;                       /* 🔧 move to right side */
   top:58%;                        /* 🔧 vertical center */
   transform:translateY(-50%);     /* 🔧 center alignment */
   width:520px;                    /* 🔧 watermark size */
