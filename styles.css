@@ -76,13 +76,38 @@ header{
   align-items:center;
   gap:8px;
 }
-.brand-wordmark{height:42px;width:auto}
+.brand-wordmark{
+  height:42px;
+  width:auto;
+}
 .brand-mobile-icon{
   display:none;
   width:28px;
   height:28px;
   opacity:0;
   transition:opacity .2s ease;
+}
+
+/* Desktop-only brand polish */ /* CHANGED */
+@media (min-width:861px){ /* CHANGED */
+  .brand{
+    gap:10px; /* CHANGED */
+  }
+
+  .brand-mobile-icon{
+    display:block; /* CHANGED */
+    width:34px; /* CHANGED */
+    height:34px; /* CHANGED */
+    opacity:1; /* CHANGED */
+    flex:0 0 auto; /* CHANGED */
+  }
+
+  .brand-wordmark{
+    height:42px;
+    width:auto;
+    border-radius:999px; /* CHANGED */
+    overflow:hidden; /* CHANGED */
+  }
 }
 
 nav ul{display:flex;gap:22px;list-style:none}
