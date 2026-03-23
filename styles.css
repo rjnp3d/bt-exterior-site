@@ -96,8 +96,8 @@ header{
 
   .brand-mobile-icon{
     display:block; /* CHANGED */
-    width:34px; /* CHANGED */
-    height:34px; /* CHANGED */
+    width:42px; /* CHANGED */
+    height:42px; /* CHANGED */
     opacity:1; /* CHANGED */
     flex:0 0 auto; /* CHANGED */
   }
