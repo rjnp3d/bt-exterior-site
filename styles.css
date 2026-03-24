@@ -206,7 +206,10 @@ section{padding:52px 0;border-top:none}
 /* Grids */
 .grid{display:grid;gap:16px}
 .grid-3{grid-template-columns:repeat(3,1fr)}
-.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-2{
+  grid-template-columns:repeat(2,1fr);
+  align-items:stretch; /* 🔧 ADDED */
+}
 @media (max-width:860px){.grid-3,.grid-2{grid-template-columns:1fr}}
 
 /* Cards */
@@ -253,7 +256,21 @@ ul.check li::before{
 @media (max-width:480px){.gallery{grid-template-columns:1fr;gap:8px}}
 
 /* Contact */
+/* Contact */
 .contact{font-size:17px}
+
+.contact .card{
+  display:flex;              /* 🔧 ADDED */
+  flex-direction:column;     /* 🔧 ADDED */
+  height:100%;               /* 🔧 ADDED */
+}
+
+#contact-form{
+  display:flex;              /* 🔧 ADDED */
+  flex-direction:column;     /* 🔧 ADDED */
+  height:100%;               /* 🔧 ADDED */
+}
+
 .input{
   width:100%;
   padding:12px;
@@ -268,10 +285,19 @@ ul.check li::before{
   border-color:var(--text);
   box-shadow:0 0 0 3px rgba(11,15,20,.12);
 }
-textarea.input{min-height:120px;resize:vertical}
+textarea.input{
+  min-height:120px;
+  resize:vertical;
+  flex:1 1 auto;            /* 🔧 ADDED */
+}
 
 /* Make contact info card match the form card rhythm (no HTML changes needed) */
-.contact-info{display:flex;flex-direction:column;gap:12px}
+.contact-info{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  height:100%;               /* 🔧 ADDED */
+}
 .contact-info p{margin:0}
 .contact-info p:not(.small){
   display:flex;
@@ -285,9 +311,24 @@ textarea.input{min-height:120px;resize:vertical}
 }
 .contact-info p:not(.small) strong{min-width:110px}
 .contact-info p:not(.small) a{font-weight:650}
-.contact-info .btn{width:max-content;margin-top:6px}
-.contact-info .small{margin-top:6px}
 
+#contact-form .btn{
+  width:100%;                /* 🔧 ADDED */
+  margin-top:6px;            /* 🔧 ADDED */
+}
+
+.contact-info .btn{
+  width:100%;                /* 🔧 CHANGED from max-content */
+  margin-top:auto;           /* 🔧 CHANGED */
+}
+
+#contact-form .small{
+  margin-top:10px;           /* 🔧 ADDED */
+}
+
+.contact-info .small{
+  margin-top:10px;           /* 🔧 CHANGED */
+}
 @media (max-width:480px){
   .contact-info p:not(.small){
     justify-content:flex-start; /* CHANGED: stop pushing content to opposite sides */
